@@ -14,3 +14,17 @@ Usage
 3. `mkdir images pages`
 4. `python get_hand.py sample.py`
 5. `python make_page.py`
+
+
+Example
+-------
+
+!(Example of handwriting)[example.png]
+
+
+More Info
+---------
+
+[The paper](http://arxiv.org/abs/1308.0850)  
+[The man behind it all. Alex Graves](http://www.cs.toronto.edu/~graves/)  
+[What I am using](http://www.cs.toronto.edu/~graves/handwriting.html)
