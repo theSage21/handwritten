@@ -1,5 +1,5 @@
-HomeWork
-========
+Handwritten
+===========
 
 Homework could have been so much easier if only it could be submitted as a typed copy.  
 Using Alex Graves' paper on handwriting generation is a step I liked. 
@@ -12,7 +12,7 @@ Usage
 1. Create a plaintext file with no more than 100 chars on each line.(we call it sample.txt)
 2. Navigate to the folder with the script.
 3. `mkdir images pages`
-4. `python get_hand.py sample.py`
+4. `python get_hand.py sample.txt`
 5. `python make_page.py`
 
 
