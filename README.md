@@ -19,7 +19,7 @@ Usage
 Example
 -------
 
-!(Example of handwriting)[example.png]
+![Example of handwriting](example.png)
 
 
 More Info
