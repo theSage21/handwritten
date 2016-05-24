@@ -32,6 +32,13 @@ try:
     start_at = int(sys.argv[2])
 except IndexError:
     pass
+
+if not os.path.exists('images'):
+    print('Creating images folder')
+    os.makedirs('images')
+
+ 
+
 print('Starting handwriting generation')
 for index, line in enumerate(lines):
     if index < start_at:
