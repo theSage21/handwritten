@@ -1,7 +1,16 @@
 import os
+import sys
 from PIL import Image
 
+if not os.path.exists('pages'):
+    print('Creating pages folder')
+    os.makedirs('pages')
 
+try:
+    line_count = sys.argv[1]
+except IndexError:
+    line_count = 20
+    
 def make_page(lines, count):
     images = [Image.open(i) for i in lines]
     no_of_lines = len(lines)
@@ -24,7 +33,7 @@ paths = [i[1] for i in reversed(ranked_paths)]
 count = 1
 while paths:
     page = []
-    for i in range(20):
+    for i in range(line_count):
         try:
             x = paths.pop()
         except IndexError:
