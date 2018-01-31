@@ -6,6 +6,13 @@ Using Alex Graves' paper on handwriting generation is a step I liked.
 This script uses his amazing paper (actually the free service he has set up online) to
 generate handwritten homework for given text.
 
+Requirements
+----
+
+- python3.x
+- `pip install requests`
+- `pip install pillow`
+
 Usage
 -----
 
