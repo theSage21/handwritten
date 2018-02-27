@@ -33,27 +33,13 @@ def get_arguments():
 
 
 def get_handwriting(text, style, bias, samples=1):
-    style_models = (
-            '../data/trainset_diff_no_start_all_labels.nc,973+905',
-            '../data/trainset_diff_no_start_all_labels.nc,1082+554',
-            '../data/trainset_diff_no_start_all_labels.nc,1495+898',
-            '../data/trainset_diff_no_start_all_labels.nc,1970+378',
-            '../data/trainset_diff_no_start_all_labels.nc,1561+872',
-            '')
-
     payload = {'text': text,
-               'style': style_models[style],
-               'bias': bias,
-               'samples': samples}
-    url = 'http://www.cs.toronto.edu/~graves/handwriting.cgi'
-    page = requests.get(url, params=payload)
-    text = page.text
+               'style': style,
+               'bias': bias}
+    url = 'https://handwriting-generator.herokuapp.com/write'
+    page = requests.post(url, json=payload)
     print('.', end='')
-    # print('.', end='')
-    search_string = '<img src="data:image/jpeg;base64,'
-    start = text.find(search_string) + len(search_string)
-    image_str = text[start:-5]
-    return image_str
+    return page
 
 
 def add_color(color, image_out):
@@ -96,11 +82,11 @@ def command_line():
             continue
         if not line.strip() == '':
             print(index, ' - ', line, end='')
-            image_str = get_handwriting(line, style, bias)
-            x = base64.b64decode(image_str)
+            page = get_handwriting(line, style, bias)
             image_out = os.path.join('images', str(index) + '.png')
             with open(image_out, 'wb') as fl:
-                fl.write(x)
+                for x in page:
+                    fl.write(x)
             if not color == [0, 0, 0]:
                 add_color(color, image_out)
             print('|')

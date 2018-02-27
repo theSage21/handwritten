@@ -13,6 +13,8 @@ Requirements
 - `pip install requests`
 - `pip install pillow`
 
+Or you can do `pipenv install --python3`
+
 Usage
 -----
 
